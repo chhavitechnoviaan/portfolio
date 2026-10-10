@@ -1,0 +1,155 @@
+:root {
+  /* Editorial & High-End Luxury Design System Tokens */
+  --color-bg-white: #FFFFFF;
+  --color-text-black: #111115;
+
+  --color-primary-red: #D92626;
+  --color-crimson: #E02626;
+
+  --color-obsidian: #0A0A0D;
+  --color-pitch-black: #000000;
+  --color-dark-surface: #121216;
+  --color-dark-card: #16161C;
+
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-bg-white);
+  color: var(--color-text-black);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body, #root, .portfolio-app, .portfolio-main {
+  min-height: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.portfolio-main > section {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+@media (pointer: fine) {
+  html, body, a, button, input, textarea, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--color-bg-white);
+  color: var(--color-text-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Disabled Heavy SVG Filter for Ultra-Fast 60fps Scroll Performance */
+.paper-grain-overlay {
+  display: none;
+}
+
+/* Clean White Grid Background */
+.bg-grid-white {
+  background-color: #FFFFFF;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Optimized Luxury Cards with Clean Dark Surfaces & Refined Borders */
+.glass-card-3d {
+  background: #121216;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s var(--ease-editorial), box-shadow 0.3s var(--ease-editorial), border-color 0.3s ease;
+}
+
+.glass-card-3d:hover {
+  border-color: rgba(224, 38, 38, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* White Clean Glass Card */
+.glass-card-white {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* 3D Hover Lift Effect */
+.hover-3d-lift {
+  will-change: transform;
+  transition: transform 0.3s var(--ease-editorial), box-shadow 0.3s var(--ease-editorial);
+}
+
+.hover-3d-lift:hover {
+  transform: translateY(-6px);
+}
+
+/* Infinite Running Marquee Text */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 32px;
+  animation: marqueeScroll 22s linear infinite;
+  will-change: transform;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 50, 50, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-red);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
